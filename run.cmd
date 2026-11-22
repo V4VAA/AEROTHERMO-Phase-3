@@ -25,8 +25,7 @@ if errorlevel 1 (
 )
 
 cl /nologo /std:c++20 /EHsc /O2 /MD /utf-8 /I..\EquilFlow ^
-    ..\src\main.cpp ..\src\std_atmosphere.cpp ..\src\shocks.cpp ^
-    ..\src\cone.cpp ..\src\stag_properties.cpp ..\src\ArmSutMixing.cpp ^
+    "..\src\*.cpp" ^
     ..\EquilFlow\Release\EquilFlowLib.lib /Fe:AE4080.exe /link /IGNORE:4099
 set "result=%errorlevel%"
 popd

@@ -1,0 +1,7 @@
+# Local compiler and IDE files
+/build/
+/.vs/
+
+# Generated program output
+/*.csv
+/jacobi_out.dat
