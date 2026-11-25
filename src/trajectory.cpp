@@ -40,8 +40,6 @@ static vector<double> state(int type, double V, double gamma, double h, double A
 
 vector<vector<double>> trajectory(int type, double h0, double V0, double gamma0, double AoA, double m, double Sref)
 {
-    if (type != 1 && type != 2) {throw invalid_argument("invalid body type");}
-
     double h = h0;
     double gamma = gamma0;
     double V = V0;
