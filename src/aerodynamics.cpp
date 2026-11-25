@@ -7,7 +7,7 @@ using namespace std;
 
 const double pi = 3.14159265358979323846;
 
-vector<double> aerodynamics(double type, double altitude, double Mach, double AoA)
+vector<double> aerodynamics(int type, double altitude, double Mach, double AoA)
 {
     EquilFlow aero("E10");
     vector<double> properties = aero.NormalShock(altitude, Mach);
