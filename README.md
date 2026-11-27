@@ -12,9 +12,20 @@ Open PowerShell in the repository root and run the project:
 .\run.cmd
 ```
 
-The command builds an optimized x64 executable at `build\AE4080.exe` and runs
-the Mach 35, 22, and 10.5 flight cases. Shock and transport results print to
-the console. Each run writes `aero_results.csv` in the repository root.
+Edit the `cases` vector in `src/main.cpp` to set the inputs. Each row has
+these eight values:
+
+```text
+type h0 V0 gamma0 AoA m Sref rnose
+```
+
+Use type 1 for the ellipsoid or type 2 for the biparabolic body. Use metres,
+metres per second, radians for both angles, kilograms, square metres, and
+metres for the nose radius, respectively.
+
+The command builds an optimized x64 executable and writes `trajectory.csv`
+and `results.csv`. The latter reports peak stagnation-point convective heat
+flux, time of peak, and integrated heat load for each case.
 
 To rerun an existing build from the repository root, use
 `.\build\AE4080.exe`. EquilFlow reads its gas and species data relative to that
