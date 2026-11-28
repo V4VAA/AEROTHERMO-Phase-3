@@ -17,7 +17,6 @@ vector<double> heating(const vector<vector<double>>& history, double rnose)
 {
     const double T_w = 300.0; //cold wall assumption
     const double mu_w = 1.458e-6 * pow(T_w, 1.5) / (T_w + 110.4);
-    const double k_sg = 1.74153e-4;
 
     double peak = 0.0;
     double peak_time = 0.0;
@@ -56,13 +55,14 @@ vector<double> heating(const vector<vector<double>>& history, double rnose)
             const double rho_w = air.mix.rho;
             const double h_w = 1000.0 * air.mix.h;
 
-            //Stagnation point Fay-Riddell heating
+            //Stagnation point heating with Fay-Riddell
             const double grad_u_e = sqrt(2.0 * (P_e - P_inf) / rho_e) / rnose;
             q = 0.763 * pow(Pr_e, -0.6) * pow(rho_w * mu_w, 0.1) * pow(rho_e * mu_e, 0.4) * sqrt(grad_u_e) * (h_e - h_w);
         }
         else if (M >= 1.2)
         {
-            q = k_sg * sqrt(rho_inf / rnose) * pow(V, 3);
+            //Stagnation point heating with Sutton-Graves
+            q = 1.74153e-4 * sqrt(rho_inf / rnose) * pow(V, 3);
         }
 
         if (first || q > peak)

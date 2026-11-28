@@ -50,9 +50,12 @@ int main()
             histories << case_number << ',' << state[0] << ',' << state[1] << ',' << state[2] << ',' << state[3] << '\n';
         }
 
+        cout << "\nCase " <<  case_number << "trajectory sim done \n"<< endl;
+
         const vector<double> aeroheating = heating(history, rnose);
-        results << case_number << ',' << type << ',' << aeroheating[0] << ','
-                << aeroheating[1] << ',' << aeroheating[2] << '\n';
+        results << case_number << ',' << type << ',' << aeroheating[0] << ',' << aeroheating[1] << ',' << aeroheating[2] << '\n';
+
+        cout << "Case " <<  case_number << "heating sim done \n"<< endl;
     }
 
     return 0;
